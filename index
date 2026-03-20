@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <base target="_top">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,600,1,0" />
+  <link rel="icon" href="https://www.airliquide.com/sites/airliquide.com/files/air-liquide.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="https://www.airliquide.com/sites/airliquide.com/files/air-liquide.svg">
+  <title>Hub Applications | Air Liquide</title>
+  <style>
+    /* PALETTE APAISANTE ET NEUMORPHISME PREMIUM */
+    :root {
+      --bg-color: #F2EBE1;
+      --shadow-dark: #D4CFC4;
+      --shadow-light: #FFFFFF;
+      --text-main: #4A4A4A;
+      --text-muted: #7A7A7A;
+      --al-blue: #004F9F;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      font-family: 'Nunito', sans-serif;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      color: var(--text-main);
+    }
+
+    /* EN-TÊTE ET LIGNE DE SÉPARATION */
+    header {
+      width: 100%;
+      padding: 30px 50px 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .logo-container img {
+      height: 45px;
+      opacity: 0.85;
+      filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.05));
+    }
+
+    h1 {
+      color: var(--al-blue);
+      font-weight: 800;
+      font-size: 1.8rem;
+      letter-spacing: 0.5px;
+      text-shadow: 2px 2px 4px var(--shadow-light);
+      margin: 0;
+    }
+
+    /* La nouvelle ligne horizontale */
+    .header-divider {
+      width: 90%;
+      max-width: 1100px;
+      height: 2px;
+      background-color: transparent;
+      margin-bottom: 40px;
+      box-shadow: inset 1px 1px 2px var(--shadow-dark), 
+                  inset -1px -1px 2px var(--shadow-light);
+      border-radius: 5px;
+    }
+
+    /* GRILLE DES APPLICATIONS */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 45px;
+      width: 90%;
+      max-width: 1100px;
+      padding: 10px 20px 40px 20px;
+    }
+
+    /* CARTES (EFFET COUSSIN) */
+    .app-card {
+      background: var(--bg-color);
+      border-radius: 40px;
+      padding: 35px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      
+      box-shadow: 14px 14px 28px var(--shadow-dark), 
+                 -14px -14px 28px var(--shadow-light);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    /* CONTENEUR DE L'ICÔNE (EFFET CREUSÉ) */
+    .icon-wrapper {
+      width: 85px;
+      height: 85px;
+      border-radius: 25px;
+      background: var(--bg-color);
+      
+      box-shadow: inset 6px 6px 12px var(--shadow-dark), 
+                  inset -6px -6px 12px var(--shadow-light);
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      transition: all 0.4s ease;
+    }
+
+    /* L'ICÔNE EN ELLE-MÊME */
+    .material-symbols-rounded {
+      font-size: 42px;
+      color: var(--al-blue);
+      filter: drop-shadow(3px 3px 5px rgba(0, 79, 159, 0.3));
+      transition: all 0.3s ease;
+    }
+
+    /* TEXTES */
+    .app-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-main);
+      text-align: center;
+      margin-bottom: 5px;
+      transition: color 0.3s ease;
+    }
+
+    .app-subtitle {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* --- ANIMATIONS --- */
+    .app-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 18px 18px 36px var(--shadow-dark), 
+                 -18px -18px 36px var(--shadow-light);
+    }
+
+    .app-card:hover .icon-wrapper {
+      box-shadow: 8px 8px 16px var(--shadow-dark), 
+                 -8px -8px 16px var(--shadow-light);
+    }
+
+    .app-card:hover .material-symbols-rounded {
+      transform: scale(1.15);
+      color: #0066cc;
+    }
+
+    .app-card:hover .app-title {
+      color: var(--al-blue);
+    }
+
+    .app-card:active {
+      transform: scale(0.96);
+      box-shadow: inset 10px 10px 20px var(--shadow-dark), 
+                  inset -10px -10px 20px var(--shadow-light);
+      border: 1px solid transparent;
+    }
+
+    /* --- BOUTON ACCÈS SOURCE (FOOTER) --- */
+    .source-btn-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      padding-bottom: 40px;
+    }
+
+    .source-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 25px;
+      background: var(--bg-color);
+      border-radius: 30px;
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+      
+      box-shadow: 6px 6px 12px var(--shadow-dark), 
+                 -6px -6px 12px var(--shadow-light);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .source-btn .material-symbols-rounded {
+      font-size: 22px;
+      color: #0F9D58; 
+      transition: transform 0.3s ease;
+    }
+
+    .source-btn:hover {
+      color: var(--text-main);
+      transform: translateY(-3px);
+      box-shadow: 8px 8px 16px var(--shadow-dark), 
+                 -8px -8px 16px var(--shadow-light);
+    }
+
+    .source-btn:active {
+      transform: scale(0.96);
+      box-shadow: inset 4px 4px 8px var(--shadow-dark), 
+                  inset -4px -4px 8px var(--shadow-light);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Hub Pilotage & Achats</h1>
+    <div class="logo-container">
+      <img src="https://www.airliquide.com/sites/airliquide.com/files/air-liquide.svg" alt="Air Liquide Logo">
+    </div>
+  </header>
+  
+  <div class="header-divider"></div>
+
+  <div class="container">
+    
+    <a href="https://script.google.com/a/macros/airliquide.com/s/AKfycbyfi6RZ5jXFSA59dyTbzPVh0Yw0Fuqkup2Xy6qv7i16l6_llp8urQcRppFXgcNNDds/exec" class="app-card" target="_blank">
+      <div class="icon-wrapper">
+        <span class="material-symbols-rounded">trending_up</span>
+      </div>
+      <div class="app-title">ProcureFlow</div>
+      <div class="app-subtitle">Pilotage des Achats</div>
+    </a>
+
+    <a href="https://script.google.com/a/macros/airliquide.com/s/AKfycbwHMUgJ_StyDmmt0Lga0QrGcW0qEwrAJ4FEPp4pJ47wGEd29rZmo2HFdgiPKbHhM8K0/exec" class="app-card" target="_blank">
+      <div class="icon-wrapper">
+        <span class="material-symbols-rounded">manage_search</span>
+      </div>
+      <div class="app-title">TUNEPS</div>
+      <div class="app-subtitle">Scraper & Data</div>
+    </a>
+
+    <a href="https://script.google.com/a/macros/airliquide.com/s/AKfycbzDyhQlk2KIy7bnKzN0JvjVGFME3ODVMCzkgkUxSkdbZXJ_4KoRj6LsAPQLitL_kb4v/exec" class="app-card" target="_blank">
+      <div class="icon-wrapper">
+        <span class="material-symbols-rounded">gavel</span> 
+      </div>
+      <div class="app-title">Tender System</div>
+      <div class="app-subtitle">Management des Offres</div>
+    </a>
+
+    <a href="https://script.google.com/a/macros/airliquide.com/s/AKfycbwh2eEn7zXepoBF9dAdyTJhjCYlN0S3-KQ-aBAt7hlKA8v40Okjwb-1YJdNl6ytAmn6/exec" class="app-card" target="_blank">
+      <div class="icon-wrapper">
+        <span class="material-symbols-rounded">insert_chart</span> 
+      </div>
+      <div class="app-title">Tableau de Bord</div>
+      <div class="app-subtitle">Suivi des KPI</div>
+    </a>
+
+    <a href="https://script.google.com/a/macros/airliquide.com/s/AKfycbxwbx-PsuOzS9vmcOGdijlDAi8yDX8hmGf4zOJGY3txZahy8uia4Ui3jaZ8kCC6Nnod/exec" class="app-card" target="_blank">
+      <div class="icon-wrapper">
+        <span class="material-symbols-rounded">inventory_2</span> 
+      </div>
+      <div class="app-title">Projet Vigie</div>
+      <div class="app-subtitle">Gestion des Stocks</div>
+    </a>
+
+    <a href="https://script.google.com/a/macros/airliquide.com/s/AKfycbxwbx-PsuOzS9vmcOGdijlDAi8yDX8hmGf4zOJGY3txZahy8uia4Ui3jaZ8kCC6Nnod/exec" class="app-card" target="_blank">
+      <div class="icon-wrapper">
+        <span class="material-symbols-rounded">engineering</span> 
+      </div>
+      <div class="app-title">SOKINOX</div>
+      <div class="app-subtitle">Suivi Maintenance</div>
+    </a>
+
+    <a href="https://script.google.com/a/macros/airliquide.com/s/AKfycbyeBNtntooeJ2CefA9g_1omtsJo7DHOOnLxoyRKChK59bJ15cvfJl_jcFr4Tubwlks/exec" class="app-card" target="_blank">
+      <div class="icon-wrapper">
+        <span class="material-symbols-rounded">group</span> 
+      </div>
+      <div class="app-title">CRM</div>
+      <div class="app-subtitle">Gestion Clients</div>
+    </a>
+
+  </div>
+
+  <div class="source-btn-container">
+    <a href="https://docs.google.com/spreadsheets/d/1x4TXcSY5PL5XyoB31QTxYS--btWy5TPdTKO5yKRmVXI/edit?gid=0#gid=0" target="_blank" class="source-btn">
+      <span class="material-symbols-rounded">table_chart</span>
+      Accéder au Sheet Source
+    </a>
+  </div>
+</body>
+</html>
